@@ -6,8 +6,13 @@ package arraystring;
 
 class _01_01_IsUnique {
 
+    // runtime O(n)
     boolean isUnique(String str) {
-        throw new UnsupportedOperationException();
+        int map[] = new int[128];
+        for (int i = 0; i < str.length(); ++i) {
+            if (++map[str.charAt(i)] > 1) return false;
+        }
+        return true;
     }
 
 }
