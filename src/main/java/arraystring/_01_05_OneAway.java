@@ -13,7 +13,8 @@ package arraystring;
  */
 class _01_05_OneAway {
     boolean isOneAway(String a, String b) {
-        throw new UnsupportedOperationException();
+
+        return false;
     }
 
 }
