@@ -12,6 +12,15 @@ package arraystring;
  */
 class _01_03_URLify {
     char[] urlify(char[] chars, int trueLength) {
-        throw new UnsupportedOperationException();
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < trueLength; ++i) {
+            char c = chars[i];
+            if (c == ' ') {
+                builder.append("%20");
+            } else {
+                builder.append(c);
+            }
+        }
+        return builder.toString().toCharArray();
     }
 }

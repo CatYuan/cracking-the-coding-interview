@@ -12,6 +12,21 @@ package arraystring;
  */
 class _01_04_PalindromePermutation {
     boolean check(String s) {
-        throw new UnsupportedOperationException();
+        int length = s.length();
+        int arr[] = new int[128];
+        int count = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == ' ') {
+                --length;
+                continue;
+            }
+            ++arr[s.charAt(i)];
+            if (arr[s.charAt(i)]%2 != 0) {
+                ++count;
+            } else {
+                --count;
+            }
+        }
+        return length%2 == 0 ? count==0 : count==1;
     }
 }
