@@ -7,7 +7,35 @@ package arraystring;
  */
 class _01_09_StringRotation {
     boolean rotated(String original, String result) {
-        throw new UnsupportedOperationException();
+        if (original.length() != result.length()) {
+            return false;
+        }
+        if (original == "" && result == "") return true;
+        for (int i = result.length() - 1; i > -1; --i) {
+            if (result.charAt(i) == original.charAt(0)) {
+                return isSubstring(original, result.substring(i, result.length()));
+            }
+        }
+        return false;
+    }
+
+    // runtime: O(length of longer string)
+    boolean isSubstring(String word1, String word2) {
+        if (word1.equals(word2)) return true;
+        String longer, shorter;
+        if (word1.length() > word2.length()) {
+            longer = word1;
+            shorter = word2;
+        } else {
+            longer = word2;
+            shorter = word1;
+        }
+        for (int i = 0 ; i < longer.length() - shorter.length(); ++i) {
+            if (longer.substring(i, shorter.length() + i).equals(shorter)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
