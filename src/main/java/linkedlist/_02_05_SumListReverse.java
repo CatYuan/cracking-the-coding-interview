@@ -1,5 +1,6 @@
 package linkedlist;
 
+
 /**
  * Sum Lists: You have two numbers represented by a linked list,
  * where each node contains a single digit.
@@ -12,6 +13,40 @@ package linkedlist;
  */
 class _02_05_SumListReverse {
     LinkedListNode sum(LinkedListNode l1, LinkedListNode l2) {
-        throw new UnsupportedOperationException();
+        if (l1 == null && l2 == null) {
+            return null;
+        }
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        LinkedListNode output = new LinkedListNode(0);
+        LinkedListNode curr = null;
+        int carryover = 0;
+        while (l1 != null && l2 != null) {
+            if (curr == null) {
+                curr = output;
+            } else {
+                curr.next = new LinkedListNode(0);
+                curr = curr.next;
+            }
+            if (l1 == null) {
+                l1 = new LinkedListNode(0);
+            }
+            if (l2 == null) {
+                l2 = new LinkedListNode(0);
+            }
+            int add = l1.val + l2.val + carryover;
+            curr.val = add % 10;
+            carryover = add / 10;
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        if (carryover > 0) {
+            curr.next = new LinkedListNode(carryover);
+        }
+        return output;
     }
 }
