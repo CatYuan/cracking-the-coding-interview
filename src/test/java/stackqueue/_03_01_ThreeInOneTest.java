@@ -30,9 +30,9 @@ public class _03_01_ThreeInOneTest {
         assertEquals(6, s.pop(0));
         assertEquals(2, s.pop(1));
         assertEquals(1, s.pop(1));
-        assertEquals(5, s.pop(2));
         assertEquals(4, s.pop(2));
         assertEquals(3, s.pop(2));
+        assertEquals(0, s.pop(2));
     }
 
     @Test(expected = RuntimeException.class)
