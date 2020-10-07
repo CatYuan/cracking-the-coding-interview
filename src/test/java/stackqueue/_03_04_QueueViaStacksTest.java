@@ -33,10 +33,10 @@ public class _03_04_QueueViaStacksTest {
         assertEquals(4, s.dequeue());
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void withEmptyQueue() {
         s.enqueue(1);
-        s.dequeue();
-        s.dequeue();
+        assertEquals(1, s.dequeue());
+        assertEquals(-1, s.dequeue());
     }
 }
