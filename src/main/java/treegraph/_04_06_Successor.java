@@ -6,7 +6,21 @@ package treegraph;
  */
 class _04_06_Successor {
     ParentAwareBinaryTreeNode findInOrderSuccessor(ParentAwareBinaryTreeNode node) {
-        throw new UnsupportedOperationException();
+        if (node == null) return null;
+        if (node.right != null) {
+            return node.right;
+        }
+        ParentAwareBinaryTreeNode parent = node.parent;
+        if (parent == null) {
+            return null;
+        }
+        if (parent.left == node) {
+            return parent;
+        }
+        while (parent.parent != null) {
+            parent = parent.parent;
+        }
+        return parent;
     }
 
 
