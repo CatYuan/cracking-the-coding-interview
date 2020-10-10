@@ -14,7 +14,7 @@ class _04_07_BuildOrder {
 
 
     List<Integer> findBuildOrder(Digraph digraph) {
-
+        return null;
     }
 
 
